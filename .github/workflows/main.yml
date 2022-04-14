@@ -8,4 +8,14 @@ on:
 
 # A workflow run is made up of one or more jobs that ca run sequentially or in parallel
 jobs:
+  DEV:
+    # the type of runner that the job will run on
+    runs-on: ubuntu-latest
+    environment: DEV
 
+    # steps represent a sequence of tasks that will be executed as part of the job
+    - uses: actions/checkout@v2
+
+    - name: Run a script
+      run: |
+        echo "I am running this job in the DEV environment"
