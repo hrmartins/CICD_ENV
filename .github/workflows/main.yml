@@ -14,8 +14,8 @@ jobs:
     environment: DEV
 
     # steps represent a sequence of tasks that will be executed as part of the job
+    steps:
     - uses: actions/checkout@v2
-
     - name: Run a script
       run: |
         echo "I am running this job in the DEV environment"
@@ -23,12 +23,12 @@ jobs:
   qa:
     # the type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: QA
+    environment: 
     needs: dev
 
     # steps represent a sequence of tasks that will be executed as part of the job
+    steps:
     - uses: actions/checkout@v2
-
     - name: Run a script
       run: |
         echo "I am running this job in the QA environment"
@@ -40,8 +40,8 @@ jobs:
     needs: qa
 
     # steps represent a sequence of tasks that will be executed as part of the job
+    steps:
     - uses: actions/checkout@v2
-
     - name: Run a script
       run: |
         echo "I am running this job in the PROD environment"
