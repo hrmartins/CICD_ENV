@@ -1,16 +1,16 @@
 name: Main
 
 # Controls when the action will run
-
 on:
 
   # Allows you to run this workflow manually from the actions tab
   workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that ca run sequentially or in parallel
 jobs:
 
   DEV:
-    # the type ofrunner that the job will run on
+    # the type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: DEV
 
@@ -22,7 +22,7 @@ jobs:
         echo "I am running this job in the DEV environment"
 
   QA:
-    # the type ofrunner that the job will run on
+    # the type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: QA
     needs: DEV
@@ -35,7 +35,7 @@ jobs:
         echo "I am running this job in the QA environment"
 
   PROD:
-    # the type ofrunner that the job will run on
+    # the type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: PROD
     needs: QA
