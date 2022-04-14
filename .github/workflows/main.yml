@@ -1,0 +1,48 @@
+name: Main
+
+# Controls when the action will run
+
+on:
+
+  # Allows you to run this workflow manually from the actions tab
+  workflow_dispatch:
+
+jobs:
+
+  DEV:
+    # the type ofrunner that the job will run on
+    runs-on: ubuntu-latest
+    environment: DEV
+
+    # steps represent a sequence of tasks that will be executed as part of the job
+    - uses: actions/checkout@v2
+
+    - name: Run a script
+      run: |
+        echo "I am running this job in the DEV environment"
+
+  QA:
+    # the type ofrunner that the job will run on
+    runs-on: ubuntu-latest
+    environment: QA
+    needs: DEV
+
+    # steps represent a sequence of tasks that will be executed as part of the job
+    - uses: actions/checkout@v2
+
+    - name: Run a script
+      run: |
+        echo "I am running this job in the QA environment"
+
+  PROD:
+    # the type ofrunner that the job will run on
+    runs-on: ubuntu-latest
+    environment: PROD
+    needs: QA
+
+    # steps represent a sequence of tasks that will be executed as part of the job
+    - uses: actions/checkout@v2
+
+    - name: Run a script
+      run: |
+        echo "I am running this job in the PROD environment"
