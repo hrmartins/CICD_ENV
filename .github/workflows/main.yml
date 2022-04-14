@@ -1,14 +1,13 @@
-name: Main
+name: CI-Main
 
 # Controls when the action will run
-on:
 
-  push:
-    branches: [ main ]
+on:
+  # Allows you to run this workflow manually from the actions tab
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that ca run sequentially or in parallel
 jobs:
-
   DEV:
     # the type of runner that the job will run on
     runs-on: ubuntu-latest
